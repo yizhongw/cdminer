@@ -1,0 +1,2 @@
+# cdminer
+website for cdminer

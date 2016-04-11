@@ -19,9 +19,9 @@ if ($conn->connect_error) {
 
 // search the query
 if ($lang == 'chinese' or $lang == 'Chinese') {
-    $query_neighbor_sql = "select * from ch_neighbor where center='" . $query . "' order by similarity asc;";
+    $query_neighbor_sql = "select * from ch_full_neighbor where center='" . $query . "' order by similarity desc;";
 } else{
-    $query_neighbor_sql = "select * from en_neighbor where center='" . $query . "' order by similarity asc;";
+    $query_neighbor_sql = "select * from en_full_neighbor where center='" . $query . "' order by similarity desc;";
 }
 
 $list = "";

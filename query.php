@@ -24,9 +24,31 @@ if ($query_pair_result->num_rows > 0) {
     include 'result.php';
     include 'content.html';
 } else {
-    $conn->close();
-    include 'error.html';
+    $query_pair_sql = "select * from translations where english like'" . $query . "%' or chinese like '" . $query . "%';";
+    $query_pair_result = $conn->query($query_pair_sql);
+    if ($query_pair_result->num_rows > 0){
+        include 'result.php';
+        include 'error.html';
+    } else {
+        $success = FALSE;
+        for ($i=1; $i < min(10, strlen($query)); $i++) { 
+            $prefix = substr($query, 0, -$i);
+            $query_pair_sql = "select * from translations where english like'" . $prefix . "%' or chinese like '" . $prefix . "%';";
+            $query_pair_result = $conn->query($query_pair_sql);
+            if ($query_pair_result->num_rows > 0){
+                $success = TRUE;
+                include 'result.php';
+                include 'error.html';
+                break;
+            }
+        }
+        if (! $success) {
+            include 'pure_error.html';
+        }
+    }
 }
+
+$conn->close();
 
 ?>
 

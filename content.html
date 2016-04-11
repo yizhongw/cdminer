@@ -87,7 +87,7 @@
                     <div id="colorbar" class="text-center"></div>
                 </div>
                 <div class="row">
-                    <p class="text-left" style="margin-left: <?php echo 100*$diff_percent-8; ?>%; margin-top: 0px">Rank <?php echo $diff_rank; ?> / 5400 </p>
+                    <p class="text-left" style="margin-left: <?php echo 100*$diff_percent-6; ?>%; margin-top: 0px">Rank <?php echo $diff_rank; ?> / 5400 </p>
                 </div>
             </div>
            <!--  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-left"><div style="margin-top: 6px">culturally same</div></div> -->
@@ -106,16 +106,16 @@
                 <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $en_images[0];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $en_images[0];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $en_images[1];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $en_images[1];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $en_images[2];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $en_images[2];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $en_images[3];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $en_images[3];?>"/></a>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
@@ -128,16 +128,16 @@
                 <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $ch_images[0];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $ch_images[0];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $ch_images[1];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $ch_images[1];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $ch_images[2];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $ch_images[2];?>"/></a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img class="top1" src="<?php echo $ch_images[3];?>" />
+                        <a href="#" class="pop"><img class="top1" src="<?php echo $ch_images[3];?>"/></a>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
@@ -183,6 +183,18 @@
             </div>
         </div>
         </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">              
+            <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <img src="" class="imagepreview" style="width: 100%;" >
+            </div>
+            </div>
         </div>
     </div>
 
@@ -236,6 +248,14 @@
     var ch_word = <?php echo "'$ch_word'";?>;
     var ch_neighbors = <?php echo "$ch_neighbors_string"; ?>;
     draw_network(ch_word, ch_neighbors, svg2);
+
+</script>
+
+<script type="text/javascript">
+    $('.pop').on('click', function() {
+        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $('#imagemodal').modal('show');   
+    }); 
 </script>
 
 </html>

@@ -48,16 +48,19 @@ function draw_network(centor, neighbors, svg){
 
     var nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .on("click", function(d){ if(d.group!='0') location.href = "http://adapt.seiee.sjtu.edu.cn/cdminer/query.php?query="+d.name;;})
+      // .on("click", function(d){ if(d.group!='0') location.href = "http://adapt.seiee.sjtu.edu.cn/cdminer/query.php?query="+d.name;})
       .call(force.drag);
 
     nodeEnter.append("circle")
     .attr("class", "circle")
-    .attr("r", function(d){ return 35*(distance_thresh-d.distance)/distance_thresh})
+    .attr("r", function(d){ return 35*(distance_thresh-d.distance)/distance_thresh; })
     .style("fill", function(d) { if(d.group=='0') return 'yellow'; else return color(d.group); })
     .call(force.drag);
 
-    nodeEnter.append("text")
+    nodeEnter
+      .append("a")
+      .attr("xlink:href", function(d){ return "http://adapt.seiee.sjtu.edu.cn/cdminer/query.php?query="+d.name;})
+      .append("text")
       .text(function(d) { return d.name; })
       .attr("font-family", "sans-serif")
       .attr("font-size", "18px")

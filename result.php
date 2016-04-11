@@ -37,7 +37,6 @@ if ($query_ch_neighbor_result->num_rows > 0) {
 }
 $ch_neighbors_string = $ch_neighbors_string . "]";
 // echo "$ch_neighbors_string";
-$conn->close();
 
 
 //bing image search

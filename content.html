@@ -15,7 +15,6 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     <style type="text/css">
@@ -119,7 +118,7 @@
                     <div class="slider" class="text-center" style="margin-top: 5px"></div>
                 </div>
                 <div class="row">
-                    <p class="text-left" style="margin-left: <?php echo 100*$diff_percent-6; ?>%; margin-top: 20px">Rank <?php echo $diff_rank; ?> / 5400 </p>
+                    <p class="text-left" style="margin-left: <?php echo 100*$diff_percent-6; ?>%; margin-top: 20px; margin-right: -100px">Rank <?php echo $diff_rank; ?> / 5400 </p>
                 </div>
             </div>
            <!--  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-left"><div style="margin-top: 6px">culturally same</div></div> -->
@@ -284,14 +283,14 @@
 </script>
 
 <script type="text/javascript">
-    $('.slider').append('<div class="my-handle ui-slider-handle" style="margin-top:30px"><svg height="60" width="60" style="fill:grey"><path d="M30 0 L15 20 L45 20 Z"/></svg></div>');
+    $('.slider').append('<div class="my-handle ui-slider-handle" style="margin-top:30px; margin-left:-15px"><svg height="30" width="30" style="fill:grey"><path d="M15 0 L0 20 L30 20 Z"/></svg></div>');
     $(".slider").slider({
         animate: "fast",
         min:1,
         max:5400,
         step: 1,
         stop: function(event, ui) {
-            var r = confirm("You are goint to search the entity pair which ranks " + ui.value + ' ?');
+            var r = confirm("Are you goint to search the entity which ranks " + ui.value + ' ?');
             if (r == true){
                 location.href = "http://adapt.seiee.sjtu.edu.cn/cdminer/query.php?rank="+ui.value;
             }

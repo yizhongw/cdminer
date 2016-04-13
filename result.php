@@ -63,4 +63,6 @@ foreach($jsonobj->d->results as $value) {
     array_push($ch_images, $value->Thumbnail->MediaUrl); 
 }
 
+$conn->close();
+
 ?>

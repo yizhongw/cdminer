@@ -1,12 +1,12 @@
 function Colorbar() {
     var scale, // the input scale this represents;
-        margin = {top: 5, right: 0, bottom: 10, left: 10}, 
+        margin = {top: 5, right: 0, bottom: 0, left: 0}, 
     orient = "vertical",
     origin = {
         x: 0,
         y: 0
     }, // where on the parent to put it
-    barlength = 100, // how long is the bar
+    barlength = 90, // how long is the bar
     thickness = 50, // how thick is the bar
     title = "", // title for the colorbar
     scaleType = "linear";

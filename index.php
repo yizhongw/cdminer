@@ -48,7 +48,5 @@ if ($query_pair_result->num_rows > 0) {
     }
 }
 
-$conn->close();
-
 ?>
 
